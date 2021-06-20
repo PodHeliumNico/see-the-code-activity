@@ -3,11 +3,16 @@ const terminal = new Terminal({
   cursorBlink: true,
   fontFamily: "Fira Code, courier-new, courier, monospace",
   theme: { foreground: "green" },
+  // rows: 80,
 });
 
-// Helper function to insert newlines
+// Helper functions to insert newlines
 const newline = () => {
-  terminal.write("\r\n$ ");
+  terminal.write("\r\n");
+};
+
+const awaitInput = () => {
+  terminal.write("\r\n\x1B[3;32mnewuser@terminal42~$\x1B[0m ");
 };
 
 const redirect = () => {
@@ -17,19 +22,19 @@ const redirect = () => {
 // Helper function to simulate typewriter-style user prompts
 let interval;
 let char = 0;
-let next;
+let isMessageOver;
 
-const animatePrompt = async (message) => {
-  next = false;
+const animatePrompt = async (message, allowInput) => {
+  isMessageOver = false;
   if (message[char]) {
     terminal.write(message[char]);
   }
 
   if (char === message.length - 1) {
     setTimeout(() => {
-      newline();
+      allowInput ? awaitInput() : newline();
       char = 0;
-      next = true;
+      isMessageOver = true;
     }, 750);
   }
 
@@ -38,18 +43,23 @@ const animatePrompt = async (message) => {
 
 // Display prompts to user
 // Written with async / await in order to allow animations to resolve sequentially
-const promptUser = async (message) => {
+const promptUser = async (message, allowInput) => {
   return await new Promise(async (resolve) => {
     interval = setInterval(() => {
-      if (next) {
+      if (isMessageOver) {
         resolve();
         clearInterval(interval);
-        next = false;
+        isMessageOver = false;
       } else {
-        animatePrompt(message);
+        animatePrompt(message, allowInput);
       }
     }, 50);
   });
+};
+
+// Helper function to delay next prompt
+const wait = async (ms) => {
+  return await new Promise(async (resolve) => setTimeout(resolve, ms));
 };
 
 // Handle user input
@@ -64,8 +74,11 @@ terminal.onKey(async ({ key, domEvent: event }) => {
     return;
   } else if (event.code === "Enter") {
     newline();
-    col++;
-    let test = await evaluateInput(currentLine.trim());
+    col = 0;
+    if (currentLine) {
+      await evaluateInput(currentLine.trim());
+      currentLine = "";
+    }
     return;
   }
   currentLine += key.toLowerCase();
@@ -77,11 +90,86 @@ terminal.onKey(async ({ key, domEvent: event }) => {
 
 const init = async () => {
   terminal.open(document.getElementById("terminal"));
-  await promptUser("Welcome to \x1B[1;32mThe Matrix\x1B[0m $ ");
+  terminal.write("\x1B[3;32mguest@terminal42~$\x1B[0m ");
+  await wait(2000);
+  await promptUser("\x1B[1;32mzion.exe\x1B[0m --init");
+  terminal.write("Initializing startup sequence ");
+  await promptUser(". . . . . . . . . . . . . . . . . .");
+  terminal.write("\x1B[1;31mPERMISSION DENIED\x1B[0m\r\n");
+  await wait(1000);
+  terminal.write("User unable to access \x1B[1;32mzion.exe\x1B[0m\r\n");
+  await wait(1000);
+  terminal.write("Contacting \x1B[1;31mSystem Administrator Smith ");
+  await promptUser(". . . . . . . . \x1B[0m");
+  terminal.write("\x1B[3;32mguest@terminal42~$\x1B[0m ");
+  terminal.write("^C\r\n");
+  terminal.write("Recieved SIGTERM from PID1 (systemd).\r\n");
+  terminal.write("Process terminated.\r\n");
+  terminal.write("\x1B[3;32mguest@terminal42~$\x1B[0m ");
+  await wait(4000);
+  await promptUser("sudo \x1B[1;32mzion.exe\x1B[0m --init -f");
+  await terminal.write("Initializing startup sequence ");
+  await promptUser(". . . . . . . . . . . . . . . . . .");
+  terminal.write("\x1B[1;32mPassword Required for root access.\x1B[0m\r\n");
+  await wait(1000);
+  terminal.write("\x1B[1;32mPASSWORD:\x1B[0m ");
+  await wait(2000);
+  await promptUser("*******");
+  terminal.write("Validating credentials ");
+  await promptUser(". . . . . . . . . . . . . . . . . .");
+  terminal.write("\x1B[1;32mACCESS AUTHORIZED.\x1B[0m\r\n");
+  await wait(1000);
+  terminal.write("Initializing \x1B[1;32mzion.exe\x1B[0m\r\n");
+  await wait(1000);
+  terminal.write("Preparing Boot Sequence ");
+  await promptUser(". . . . . . . . . . . . . . . . . .");
+  terminal.write("Starting process with command `bundle exec rabbit-hole -C config/redpill.js\r\n");
+  await wait(1000);
+  terminal.write("[4] [REDACTED] starting in cluser mode ");
+  await promptUser(". . . . .");
+  terminal.write("[4] * Version 03.31.99 (ECMASCRIPT 3.0.1 [ES3]), codename: Morpheus\r\n");
+  await wait(1000);
+  terminal.write("[4] * Min threads: 2, max threads: 4");
+  await wait(1000);
+  terminal.write("[4] * Environment: ");
+  await wait(500);
+  terminal.write("staging\r\n");
+  await wait(1000);
+  terminal.write("[4] * Process workers: ");
+  await wait(500);
+  terminal.write("2\r\n");
+  await wait(1000);
+  terminal.write("[4] * Preloading application\r\n");
+  await wait(1000);
+  terminal.write("[4] * Listenting on tcp://0.0.0.0:51751\r\n");
+  await wait(1000);
+  terminal.write("[4] Use Ctrl-C to stop\r\n");
+  await wait(1000);
+  terminal.write("[4] - Worker 0 (pid: 9) booted, phase: 0\r\n");
+  await wait(1000);
+  terminal.write("[4] - Worker 1 (pid: 13) booted, phase: 0\r\n");
+  await wait(1000);
+  terminal.write("State changed from starting to up\r\n");
+  await wait(1000);
+  terminal.write("System Reboot Required.\r\n");
+  await wait(1000);
+  terminal.write("Restarting ");
+  await promptUser(". . . . . . . . . . . . . . . . . .");
+  await wait(3000);
+  terminal.clear();
+  terminal.write("Boot Sequence initiatilized\r\n");
+  await wait(1000);
+  terminal.write("Mounting \x1B[1;32mzion.exe\x1B[0m ");
+  await promptUser(". . . . . . . . . . . . . . . . . .");
+  terminal.write("Initialization complete.");
+  await wait(3000);
+  terminal.write("\r\n ");
+  terminal.clear();
+  await promptUser("Welcome to \x1B[1;32mThe Matrix\x1B[0m");
   terminal.focus();
 
   promptNum = 0;
-  await promptUser("Would you like to know what you're doing here? (y/n)");
+  await promptUser("Would you like to know what you're doing here? (y/n)", true);
 };
 
 // Game prompts
@@ -92,6 +180,8 @@ const evaluateInput = async (input) => {
       case 0:
         if (input === "y") {
           await promptUser("Excellent...");
+          await promptUser("");
+          await promptUser("I've brought you here because I need someone who can \x1B[1;32msee the code.\x1B[0m");
           promptNum++;
           break;
         } else if (input === "n") {
@@ -102,7 +192,7 @@ const evaluateInput = async (input) => {
           break;
         }
       default:
-        await promptUser("There's a glitch in The Matrix.");
+        await promptUser("There's been a glitch in The Matrix.");
     }
     resolve("Input Evaluated");
   });
