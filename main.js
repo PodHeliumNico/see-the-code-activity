@@ -41,12 +41,15 @@ terminal.onKey(async ({ key, domEvent: event }) => {
 
 const init = async () => {
   terminal.open(document.getElementById("terminal"));
-  await boot();
+  // await boot();
   await promptUser("Welcome to \x1B[1;32mThe Matrix\x1B[0m");
   await wait(2000);
   terminal.focus();
   inZion = true;
   promptNum = 0;
+  await morpheus();
+  await promptUser("Welcome... to the real world.");
+  wait(1000);
   await morpheus();
   await promptUser("Would you like to know what you're doing here? (y/n)", true);
 };

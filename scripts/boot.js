@@ -36,7 +36,7 @@ export const boot = async () => {
   await wait(1000);
   terminal.write("Preparing Boot Sequence ");
   await promptUser(". . . . . . . . . . . . . . . . . .");
-  terminal.write("Starting process with command `bundle exec rabbit-hole -C config/redpill.js\r\n");
+  terminal.write("Starting process with command `bundle exec Wonderland -C config/redpill.js\r\n");
   await wait(1000);
   terminal.write("[4] [REDACTED] starting in cluser mode ");
   await promptUser(". . . . .");

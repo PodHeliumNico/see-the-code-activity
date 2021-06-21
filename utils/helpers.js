@@ -6,7 +6,7 @@ export const newline = () => {
 };
 
 export const awaitInput = () => {
-  terminal.write("\r\n\x1B[3;32mnewuser@terminal42~$\x1B[0m ");
+  terminal.write("\r\n\x1B[3;36mnewuser@terminal42~$\x1B[0m ");
 };
 
 export const redirect = () => {
@@ -15,14 +15,22 @@ export const redirect = () => {
 
 export const morpheus = async () => {
   return await new Promise(async (resolve) => {
-    terminal.write("\x1B[3;37mmorpheus@zion~$\x1B[0m ");
-    await wait(1000);
+    terminal.write("\x1B[3;35mmorpheus@zion~$\x1B[0m ");
+    await wait(750);
+    resolve();
+  });
+};
+
+export const neo = async () => {
+  return await new Promise(async (resolve) => {
+    terminal.write("\x1B[3;37mneo@zion~$\x1B[0m ");
+    await wait(750);
     resolve();
   });
 };
 
 export const user = () => {
-  terminal.write("\r\n\x1B[3;32mnewuser@zion~$\x1B[0m ");
+  terminal.write("\r\n\x1B[3;36mnewuser@zion~$\x1B[0m ");
   terminal.focus();
 };
 
