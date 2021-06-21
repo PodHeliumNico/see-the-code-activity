@@ -129,26 +129,22 @@ const init = async () => {
   await promptUser(". . . . .");
   terminal.write("[4] * Version 03.31.99 (ECMASCRIPT 3.0.1 [ES3]), codename: Morpheus\r\n");
   await wait(1000);
-  terminal.write("[4] * Min threads: 2, max threads: 4");
-  await wait(1000);
-  terminal.write("[4] * Environment: ");
+  terminal.write("[4] * Min threads: 2, max threads: 4\r\n");
+  await wait(250);
+  terminal.write("[4] * Environment: staging\r\n");
   await wait(500);
-  terminal.write("staging\r\n");
-  await wait(1000);
-  terminal.write("[4] * Process workers: ");
-  await wait(500);
-  terminal.write("2\r\n");
-  await wait(1000);
+  terminal.write("[4] * Process workers: 2\r\n");
+  await wait(250);
   terminal.write("[4] * Preloading application\r\n");
-  await wait(1000);
+  await wait(500);
   terminal.write("[4] * Listenting on tcp://0.0.0.0:51751\r\n");
-  await wait(1000);
+  await wait(250);
   terminal.write("[4] Use Ctrl-C to stop\r\n");
   await wait(1000);
   terminal.write("[4] - Worker 0 (pid: 9) booted, phase: 0\r\n");
-  await wait(1000);
+  await wait(250);
   terminal.write("[4] - Worker 1 (pid: 13) booted, phase: 0\r\n");
-  await wait(1000);
+  await wait(250);
   terminal.write("State changed from starting to up\r\n");
   await wait(1000);
   terminal.write("System Reboot Required.\r\n");
@@ -157,13 +153,27 @@ const init = async () => {
   await promptUser(". . . . . . . . . . . . . . . . . .");
   await wait(3000);
   terminal.clear();
-  terminal.write("Boot Sequence initiatilized\r\n");
+  await wait(1000);
+  terminal.write("Boot Sequence Initiatilized\r\n");
   await wait(1000);
   terminal.write("Mounting \x1B[1;32mzion.exe\x1B[0m ");
   await promptUser(". . . . . . . . . . . . . . . . . .");
+  await (async () => {
+    return await new Promise(async (resolve) => {
+      for (let i = 0; i < 2000; i++) {
+        terminal.write(String.fromCharCode(Math.floor(Math.random() * 65535)));
+        await wait(1);
+      }
+      resolve();
+    });
+  })();
+  terminal.write("\r\n\r\n ");
+  await wait(100);
+  terminal.clear();
+  await wait(2000);
   terminal.write("Initialization complete.");
+  terminal.write("\r\n\r\n");
   await wait(3000);
-  terminal.write("\r\n ");
   terminal.clear();
   await promptUser("Welcome to \x1B[1;32mThe Matrix\x1B[0m");
   terminal.focus();
