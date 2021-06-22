@@ -52,7 +52,7 @@ p {
 }
 
 #code * {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   color: #eee;
 }
 
@@ -65,7 +65,7 @@ p {
 
 tr,
 td {
-  padding: 0.55rem;
+  padding: 0.15rem;
 }
 
 tr:nth-child(odd) {
