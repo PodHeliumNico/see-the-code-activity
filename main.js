@@ -1,8 +1,8 @@
-import { newline, morpheus, wait } from "./utils/helpers.js";
+import { newline, morpheus, wait, neo } from "./utils/helpers.js";
 import { promptUser } from "./utils/prompts.js";
-import { boot } from "./scripts/boot.js";
-import { welcomeUser } from "./scripts/welcomeUser.js";
-import { goodbye } from "./scripts/goodbye.js";
+import { boot, welcomeUser, goodbye, tutorial } from "./scripts/index.js";
+import { choice0, choice1 } from "./scripts/choices.js";
+
 // Instantiate XTerm
 export const terminal = new Terminal({
   cursorBlink: true,
@@ -57,21 +57,14 @@ const init = async () => {
 // Game prompts
 let promptNum;
 export const evaluateInput = async (input) => {
-  return new Promise(async (resolve) => {
+  return await new Promise(async (resolve) => {
     switch (promptNum) {
       case 0:
-        if (input === "y") {
-          await welcomeUser();
-          promptNum++;
-          break;
-        } else if (input === "n") {
-          await goodbye();
-          break;
-        } else {
-          terminal.write("There's been a glitch in The Matrix.\r\n");
-          await promptUser("Would you like to know what you're doing here? (y/n)", true);
-          break;
-        }
+        await choice0(input);
+        break;
+      case 1:
+        await choice1(input);
+        break;
       default:
         terminal.write("There's been a glitch in The Matrix.\r\n");
     }
@@ -81,4 +74,7 @@ export const evaluateInput = async (input) => {
 
 init();
 
-export { inZion };
+export { inZion, promptNum };
+export const nextPrompt = () => {
+  promptNum++;
+};
