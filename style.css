@@ -53,13 +53,14 @@ p {
 
 #code * {
   font-size: 1.8rem;
-  color: green;
+  color: #eee;
 }
 
 #code {
   width: 100vw;
   border: 1px solid white;
   box-shadow: 0.2rem 0.2rem 1.5rem black;
+  font-weight: 600;
 }
 
 tr,
@@ -73,7 +74,7 @@ tr:nth-child(odd) {
 }
 
 tr:nth-child(even) > * {
-  background-color: #2f2f2f;
+  background-color: #0f0f0f;
   margin: 0;
 }
 
@@ -86,7 +87,6 @@ td {
 
 .ln {
   width: 3rem;
-  /* border-right: 6px double #6f6f6f; */
 }
 
 .text {

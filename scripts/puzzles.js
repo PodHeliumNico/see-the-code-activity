@@ -1,7 +1,31 @@
 let codeblock = document.querySelector("#code");
 
 export const puzzles = [
-  ["This is the first line of the code block", "This is the second line of the code block", "This is the thrid line of the code block"],
+  [
+    `// TOP SECRET`,
+    `// REVEAL UNDER NO CIRCUMSTANCES`,
+    `let program = {`,
+    `&emsp; name: "Smith",`,
+    `&emsp; role: "Agent",`,
+    `&emsp; status: null,`,
+    `&emsp;},`,
+    `}`,
+    ``,
+    `program.status = "ACTIVE"`,
+  ],
+
+  [
+    `let program = {`,
+    `&emsp; name: "Smith",`,
+    `&emsp; role: "Agent",`,
+    `&emsp; status: "ACTIVE",`,
+    `&emsp; greetNeo: function() {`,
+    `&emsp;&emsp; console.log("Mr. Anderson.")`,
+    `&emsp;},`,
+    `}`,
+    ``,
+    `program.greetNeo()`,
+  ],
 ];
 
 export const renderPuzzle = (num) => {
@@ -12,7 +36,7 @@ export const renderPuzzle = (num) => {
     ln.innerText = `${i}.`;
     let text = document.createElement("td");
     text.classList.add("text");
-    text.innerText = puzzles[num][i];
+    text.innerHTML = puzzles[num][i];
     line.append(ln, text);
     codeblock.append(line);
   }

@@ -1,7 +1,7 @@
 import { newline, morpheus, wait, neo } from "./utils/helpers.js";
 import { promptUser } from "./utils/prompts.js";
 import { boot, welcomeUser, goodbye, tutorial } from "./scripts/index.js";
-import { choice0, choice1 } from "./scripts/choices.js";
+import { choice0, choice1, choice2 } from "./scripts/choices.js";
 
 // Instantiate XTerm
 export const terminal = new Terminal({
@@ -22,6 +22,7 @@ terminal.onKey(async ({ key, domEvent: event }) => {
   if (event.code === "Backspace" && col > 0) {
     terminal.write("\b \b");
     col--;
+    currentLine = currentLine.slice(0, -1);
     return;
   } else if (event.code === "Enter") {
     newline();
@@ -64,6 +65,9 @@ export const evaluateInput = async (input) => {
         break;
       case 1:
         await choice1(input);
+        break;
+      case 2:
+        await choice2(input);
         break;
       default:
         terminal.write("There's been a glitch in The Matrix.\r\n");

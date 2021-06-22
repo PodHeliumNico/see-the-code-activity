@@ -21,7 +21,7 @@ export const welcomeUser = async () => {
   // await promptUser("Someone who can \x1B[1;32msee the code.\x1B[0m");
   // await wait(3000);
   // await morpheus();
-  // await promptUser("The fact of the matter is that the Agents are planning their next move.");
+  // await promptUser("The fact of the matter is that the Machines are planning their next move.");
   // await neo();
   // await promptUser("They've recently gotten their hands on a powerful new weapon.");
   // await neo();

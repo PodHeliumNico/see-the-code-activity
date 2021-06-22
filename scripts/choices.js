@@ -39,3 +39,17 @@ export const choice1 = async (input) => {
     resolve();
   });
 };
+
+export const choice2 = async (input) => {
+  return await new Promise(async (resolve) => {
+    if (input === "2") {
+      await neo();
+      await promptUser("Whoa.");
+      nextPrompt();
+    } else {
+      terminal.write("There's been a glitch in The Matrix.\r\n");
+      await promptUser("\x1B[1;32mWhich line of code will be executed first?\x1B[0m", true);
+    }
+    resolve();
+  });
+};
