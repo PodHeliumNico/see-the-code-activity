@@ -46,7 +46,7 @@ export const puzzles = [
     ``,
     `function train(agent, exercises) {`,
     `&emsp; agent.skills = []`,
-    `&emsp; for(let i = 0; i < exercises.length && agent.skills.length < 5; i++){`,
+    `&emsp; for(let i = 0; i < exercises.length && agent.skills.length < 4; i++){`,
     `&emsp;&emsp; if(exercises[i].type === "combat" || exercises[i].type === "espionage"){`,
     `&emsp;&emsp;&emsp; agent.skills.push(exercises[i])`,
     `&emsp;&emsp; }`,
