@@ -22,7 +22,7 @@ export const choiceForInit = async (input) => {
     } else if (input === "n") {
       await goodbye();
     } else {
-      terminal.write("There's been a glitch in The Matrix.\r\n");
+      write("There's been a glitch in The Matrix.\r\n");
       await morpheus();
       await promptUser("Would you like to know what you're doing here? (y/n)", true);
     }
@@ -43,7 +43,7 @@ export const choiceForWelcome = async (input) => {
       await morpheus();
       await promptUser("Will you help us? (y/n)", true);
     } else {
-      terminal.write("There's been a glitch in The Matrix.\r\n");
+      write("There's been a glitch in The Matrix.\r\n");
       await neo();
       await promptUser("Will you help us? (y/n)", true);
     }
@@ -57,7 +57,7 @@ export const choiceForRound1 = async (input) => {
       await tutorialRound2();
       nextPrompt();
     } else {
-      terminal.write("There's been a glitch in The Matrix.\r\n");
+      write("There's been a glitch in The Matrix.\r\n");
       await promptUser("\x1B[1;32mWhich line of code will be executed first?\x1B[0m", true);
     }
     resolve();
@@ -70,7 +70,7 @@ export const choiceForRound2 = async (input) => {
       await tutorialRound3();
       nextPrompt();
     } else {
-      terminal.write("There's been a glitch in The Matrix.\r\n");
+      write("There's been a glitch in The Matrix.\r\n");
       await promptUser("\x1B[1;32mWhich line of code will execute next?\x1B[0m", true);
     }
     resolve();
@@ -83,7 +83,7 @@ export const choiceForRound3 = async (input) => {
       await tutorialRound4();
       nextPrompt();
     } else {
-      terminal.write("There's been a glitch in The Matrix.\r\n");
+      write("There's been a glitch in The Matrix.\r\n");
       await promptUser("\x1B[1;32mWhich line of code will execute last?\x1B[0m", true);
     }
     resolve();
@@ -96,7 +96,7 @@ export const choiceForRound4 = async (input) => {
       await tutorialRound5();
       nextPrompt();
     } else {
-      terminal.write("There's been a glitch in The Matrix.\r\n");
+      write("There's been a glitch in The Matrix.\r\n");
       await promptUser("\x1B[1;32mWhich line of code will execute first?\x1B[0m", true);
     }
     resolve();
@@ -109,7 +109,7 @@ export const choiceForRound5 = async (input) => {
       await tutorialRound6();
       nextPrompt();
     } else {
-      terminal.write("There's been a glitch in The Matrix.\r\n");
+      write("There's been a glitch in The Matrix.\r\n");
       await promptUser("\x1B[1;32mWhat is the length of the trainingRoutines array?\x1B[0m", true);
     }
     resolve();
@@ -122,7 +122,7 @@ export const choiceForRound6 = async (input) => {
       await tutorialRound7();
       nextPrompt();
     } else {
-      terminal.write("There's been a glitch in The Matrix.\r\n");
+      write("There's been a glitch in The Matrix.\r\n");
       await promptUser("\x1B[1;32mWhat is the next line of code that executes?\x1B[0m", true);
     }
     resolve();
@@ -134,7 +134,7 @@ export const choiceForRound7 = async (input) => {
       await tutorialRound8();
       nextPrompt();
     } else {
-      terminal.write("There's been a glitch in The Matrix.\r\n");
+      write("There's been a glitch in The Matrix.\r\n");
       await promptUser("\x1B[1;32mWhat is the next line of code that executes?\x1B[0m", true);
     }
     resolve();
@@ -146,7 +146,7 @@ export const choiceForRound8 = async (input) => {
       await tutorialRound9();
       nextPrompt();
     } else {
-      terminal.write("There's been a glitch in The Matrix.\r\n");
+      write("There's been a glitch in The Matrix.\r\n");
       await promptUser("\x1B[1;32mWhat is the next line of code that executes?\x1B[0m", true);
     }
     resolve();
@@ -158,7 +158,7 @@ export const choiceForRound9 = async (input) => {
       await tutorialRound10();
       nextPrompt();
     } else {
-      terminal.write("There's been a glitch in The Matrix.\r\n");
+      write("There's been a glitch in The Matrix.\r\n");
       await promptUser("\x1B[1;32mWhat is the next line of code that executes?\x1B[0m", true);
     }
     resolve();
@@ -171,7 +171,7 @@ export const choiceForRound10 = async (input) => {
       await tutorialRound11();
       nextPrompt();
     } else {
-      terminal.write("There's been a glitch in The Matrix.\r\n");
+      write("There's been a glitch in The Matrix.\r\n");
       await promptUser("\x1B[1;32mIf a skill is added to the agent.skills array, enter its name without quotes.\x1B[0m");
       await promptUser('\x1B[1;32mIf no skill is added, enter "nothing" without quotes.\x1B[0m', true);
     }
@@ -185,7 +185,7 @@ export const choiceForRound11 = async (input) => {
       await tutorialRound12();
       nextPrompt();
     } else {
-      terminal.write("There's been a glitch in The Matrix.\r\n");
+      write("There's been a glitch in The Matrix.\r\n");
       await promptUser("\x1B[1;32mWhat is the maximum number of times that this loop could run?\x1B[0m", true);
     }
     resolve();
@@ -198,7 +198,7 @@ export const choiceForRound12 = async (input) => {
       await tutorialRound13();
       nextPrompt();
     } else {
-      terminal.write("There's been a glitch in The Matrix.\r\n");
+      write("There's been a glitch in The Matrix.\r\n");
       await promptUser("\x1B[1;32mWhat is the length of the agent.skills array at the end of the loop?\x1B[0m", true);
     }
     resolve();
@@ -211,7 +211,7 @@ export const choiceForRound13 = async (input) => {
       await tutorialRound14();
       nextPrompt();
     } else {
-      terminal.write("There's been a glitch in The Matrix.\r\n");
+      write("There's been a glitch in The Matrix.\r\n");
       await promptUser("\x1B[1;32mWhat is the name of the last skill that was added to the agent.skills array?\x1B[0m", true);
     }
     resolve();
@@ -224,7 +224,7 @@ export const choiceForRound14 = async (input) => {
       await tutorialRound15();
       // nextPrompt();
     } else {
-      terminal.write("There's been a glitch in The Matrix.\r\n");
+      write("There's been a glitch in The Matrix.\r\n");
       await promptUser("\x1B[1;32mREACHED END OF CURRENT SECTION\x1B[0m", true);
     }
     resolve();

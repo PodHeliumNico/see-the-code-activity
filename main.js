@@ -1,4 +1,4 @@
-import { newline, morpheus, wait, neo } from "./utils/helpers.js";
+import { newline, morpheus, wait, write, buffering, input } from "./utils/helpers.js";
 import { promptUser } from "./utils/prompts.js";
 import { boot } from "./scripts/index.js";
 import {
@@ -36,23 +36,28 @@ let col = 0;
 let inZion;
 
 terminal.onKey(async ({ key, domEvent: event }) => {
-  if (event.code === "Backspace" && col > 0) {
-    terminal.write("\b \b");
-    col--;
-    currentLine = currentLine.slice(0, -1);
-    return;
-  } else if (event.code === "Enter") {
-    newline();
-    col = 0;
-    if (currentLine) {
-      await evaluateInput(currentLine.trim());
-      currentLine = "";
+  if (!buffering) {
+    if (event.code === "Backspace") {
+      if (col > 0) {
+        input("\b \b");
+        col--;
+        currentLine = currentLine.slice(0, -1);
+        return;
+      }
+    } else if (event.code === "Enter") {
+      newline();
+      col = 0;
+      if (currentLine) {
+        await evaluateInput(currentLine.trim());
+        currentLine = "";
+      }
+      return;
+    } else {
+      currentLine += key.toLowerCase();
+      input(key);
+      col++;
     }
-    return;
   }
-  currentLine += key.toLowerCase();
-  terminal.write(key);
-  col++;
 });
 
 // Create terminal
@@ -126,7 +131,7 @@ export const evaluateInput = async (input) => {
         await choiceForRound14(input);
         break;
       default:
-        terminal.write("There's been a glitch in The Matrix.\r\n");
+        write("There's been a glitch in The Matrix.\r\n");
     }
     resolve("Input Evaluated");
   });

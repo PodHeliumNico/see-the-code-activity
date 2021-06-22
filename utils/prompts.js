@@ -1,5 +1,5 @@
 import { terminal, inZion } from "../main.js";
-import { newline, awaitInput, user } from "./helpers.js";
+import { newline, awaitInput, user, setBuffering, write } from "./helpers.js";
 
 // Helper function to simulate typewriter-style user prompts
 let interval;
@@ -8,7 +8,7 @@ let isMessageOver;
 
 export const animatePrompt = async (message, allowInput) => {
   if (message[char]) {
-    terminal.write(message[char]);
+    write(message[char]);
   }
 
   if (char === message.length - 1) {
@@ -25,6 +25,7 @@ export const animatePrompt = async (message, allowInput) => {
 // Display prompts to user
 // Written with async / await in order to allow animations to resolve sequentially
 export const promptUser = async (message, allowInput) => {
+  setBuffering(true);
   return await new Promise(async (resolve) => {
     isMessageOver = false;
     interval = setInterval(() => {
