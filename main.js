@@ -42,7 +42,7 @@ terminal.onKey(async ({ key, domEvent: event }) => {
 
 const init = async () => {
   terminal.open(document.getElementById("terminal"));
-  // await boot();
+  await boot();
   await promptUser("Welcome to \x1B[1;32mThe Matrix\x1B[0m");
   await wait(2000);
   terminal.focus();
