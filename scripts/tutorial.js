@@ -46,3 +46,23 @@ export const tutorialRound4 = async () => {
   await promptUser("Where should we look first?");
   await promptUser("\x1B[1;32mWhich line of code will execute first?\x1B[0m", true);
 };
+
+export const tutorialRound5 = async () => {
+  await neo();
+  await promptUser("So they've set up some kind of training exercises?");
+  await morpheus();
+  await promptUser("We need to know more.");
+  await neo();
+  await promptUser("How much training are we talking about?");
+  await promptUser("\x1B[1;32mWhat is the length of the trainingRoutines array?\x1B[0m", true);
+};
+
+export const tutorialRound6 = async () => {
+  await neo();
+  await promptUser("That's a lot of training");
+  await morpheus();
+  await promptUser("Hold on, Neo. There are still more answers to seek.");
+  await morpheus();
+  await promptUser("When does this routine start?");
+  await promptUser("\x1B[1;32mWhat is the next line of code that executes?\x1B[0m", true);
+};
