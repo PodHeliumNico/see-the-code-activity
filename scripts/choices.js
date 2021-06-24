@@ -1,4 +1,4 @@
-import { morpheus, neo } from "../utils/helpers.js";
+import { morpheus, neo, write } from "../utils/helpers.js";
 import { promptUser } from "../utils/prompts.js";
 import { promptNum, nextPrompt, terminal } from "../main.js";
 import { welcomeUser, goodbye, tutorialRound1, tutorialRound2, tutorialRound3, tutorialRound4, tutorialRound5, tutorialRound6 } from "./index.js";
@@ -123,7 +123,7 @@ export const choiceForRound6 = async (input) => {
       nextPrompt();
     } else {
       write("There's been a glitch in The Matrix.\r\n");
-      await promptUser("\x1B[1;32mWhat is the next line of code that executes?\x1B[0m", true);
+      await promptUser("\x1B[1;32mWhat line executes the train function?\x1B[0m", true);
     }
     resolve();
   });

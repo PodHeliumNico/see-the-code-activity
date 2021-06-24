@@ -64,7 +64,7 @@ export const tutorialRound6 = async () => {
   await promptUser("Hold on, Neo. There are still more answers to seek.");
   await morpheus();
   await promptUser("When does this routine start?");
-  await promptUser("\x1B[1;32mWhat is the next line of code that executes?\x1B[0m", true);
+  await promptUser("\x1B[1;32mWhat line executes the train function?\x1B[0m", true);
 };
 
 export const tutorialRound7 = async () => {
@@ -124,7 +124,7 @@ export const tutorialRound13 = async () => {
 
 export const tutorialRound14 = async () => {
   await morpheus();
-  await promptUser("Is there anything that we're missing");
+  await promptUser("Is there anything that we're missing?");
   await promptUser("\x1B[1;32mDoes another line of code execute after exiting the train function? (y/n)\x1B[0m", true);
 };
 

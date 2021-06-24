@@ -25,7 +25,7 @@ export const terminal = new Terminal({
   cursorBlink: true,
   fontFamily: "Fira Code, courier-new, courier, monospace",
   theme: { foreground: "green" },
-  // rows: 80,
+  cols: 81,
 });
 
 // Handle user input
