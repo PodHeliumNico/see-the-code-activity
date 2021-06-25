@@ -1,18 +1,35 @@
 import { morpheus, neo, write } from "../utils/helpers.js";
 import { promptUser } from "../utils/prompts.js";
 import { promptNum, nextPrompt, terminal } from "../main.js";
-import { welcomeUser, goodbye, tutorialRound1, tutorialRound2, tutorialRound3, tutorialRound4, tutorialRound5, tutorialRound6 } from "./index.js";
 import {
+  welcomeUser,
+  goodbye,
+  tutorialRound1,
+  tutorialRound2,
+  tutorialRound3,
+  tutorialRound4,
+  tutorialRound5,
+  tutorialRound6,
   tutorialRound10,
   tutorialRound11,
   tutorialRound12,
   tutorialRound13,
   tutorialRound14,
   tutorialRound15,
+  tutorialRound16,
+  tutorialRound17,
+  tutorialRound18,
+  tutorialRound19,
+  tutorialRound20,
+  tutorialRound21,
+  tutorialRound22,
+  tutorialRound23,
+  tutorialRound24,
   tutorialRound7,
   tutorialRound8,
   tutorialRound9,
-} from "./tutorial.js";
+} from "./index.js";
+import { tutorialRound25 } from "./tutorial.js";
 
 export const choiceForInit = async (input) => {
   return await new Promise(async (resolve) => {
@@ -222,10 +239,140 @@ export const choiceForRound14 = async (input) => {
   return await new Promise(async (resolve) => {
     if (input === "n") {
       await tutorialRound15();
-      // nextPrompt();
+      nextPrompt();
     } else {
       write("There's been a glitch in The Matrix.\r\n");
-      await promptUser("\x1B[1;32mREACHED END OF CURRENT SECTION\x1B[0m", true);
+      await promptUser("\x1B[1;32mDoes another line of code execute after exiting the train function? (y/n)\x1B[0m", true);
+    }
+    resolve();
+  });
+};
+
+export const choiceForRound15 = async (input) => {
+  return await new Promise(async (resolve) => {
+    if (input === "1") {
+      await tutorialRound16();
+      nextPrompt();
+    } else {
+      write("There's been a glitch in The Matrix.\r\n");
+      await promptUser("\x1B[1;32mWhich line of code will execute first?\x1B[0m", true);
+    }
+    resolve();
+  });
+};
+
+export const choiceForRound16 = async (input) => {
+  return await new Promise(async (resolve) => {
+    if (input === "10") {
+      await tutorialRound17();
+      nextPrompt();
+    } else {
+      write("There's been a glitch in The Matrix.\r\n");
+      await promptUser("\x1B[1;32mWhich line of code will execute next?\x1B[0m", true);
+    }
+    resolve();
+  });
+};
+
+export const choiceForRound17 = async (input) => {
+  return await new Promise(async (resolve) => {
+    if (input === "17") {
+      await tutorialRound18();
+      nextPrompt();
+    } else {
+      write("There's been a glitch in The Matrix.\r\n");
+      await promptUser("\x1B[1;32mWhich line of code will execute next?\x1B[0m", true);
+    }
+    resolve();
+  });
+};
+
+export const choiceForRound18 = async (input) => {
+  return await new Promise(async (resolve) => {
+    if (input === "29") {
+      await tutorialRound19();
+      nextPrompt();
+    } else {
+      write("There's been a glitch in The Matrix.\r\n");
+      await promptUser("\x1B[1;32mWhat line will execute the controlHumans function?\x1B[0m", true);
+    }
+    resolve();
+  });
+};
+
+export const choiceForRound19 = async (input) => {
+  return await new Promise(async (resolve) => {
+    if (input === "y") {
+      await tutorialRound20();
+      nextPrompt();
+    } else {
+      write("There's been a glitch in The Matrix.\r\n");
+      await promptUser("\x1B[1;32mWill the while-loop run? (y/n)\x1B[0m", true);
+    }
+    resolve();
+  });
+};
+
+export const choiceForRound20 = async (input) => {
+  return await new Promise(async (resolve) => {
+    if (input === "19") {
+      await tutorialRound21();
+      nextPrompt();
+    } else {
+      write("There's been a glitch in The Matrix.\r\n");
+      await promptUser("\x1B[1;32mWhich line of code will execute next?\x1B[0m", true);
+    }
+    resolve();
+  });
+};
+
+export const choiceForRound21 = async (input) => {
+  return await new Promise(async (resolve) => {
+    if (input === "n") {
+      await tutorialRound22();
+      nextPrompt();
+    } else {
+      write("There's been a glitch in The Matrix.\r\n");
+      await promptUser("\x1B[1;32mDoes the variable isZionFound represent the searchForZion function? (y/n)\x1B[0m", true);
+    }
+    resolve();
+  });
+};
+
+export const choiceForRound22 = async (input) => {
+  return await new Promise(async (resolve) => {
+    if (input === "1") {
+      await tutorialRound23();
+      nextPrompt();
+    } else {
+      write("There's been a glitch in The Matrix.\r\n");
+      await promptUser("\x1B[1;32mWhich line of code will execute next?\x1B[0m", true);
+    }
+    resolve();
+  });
+};
+
+export const choiceForRound23 = async (input) => {
+  return await new Promise(async (resolve) => {
+    if (input === "19") {
+      await tutorialRound24();
+      nextPrompt();
+    } else {
+      write("There's been a glitch in The Matrix.\r\n");
+      await promptUser("\x1B[1;32mWhat line does the return statement return to?\x1B[0m", true);
+    }
+    resolve();
+  });
+};
+
+export const choiceForRound24 = async (input) => {
+  return await new Promise(async (resolve) => {
+    if (input === "20") {
+      await tutorialRound25();
+      nextPrompt();
+    } else {
+      write("There's been a glitch in The Matrix.\r\n");
+      await promptUser("\x1B[1;32mWhat line of code have the Machines written incorrectly?\x1B[0m", true);
     }
     resolve();
   });

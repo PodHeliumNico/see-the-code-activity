@@ -18,6 +18,16 @@ import {
   choiceForRound12,
   choiceForRound13,
   choiceForRound14,
+  choiceForRound15,
+  choiceForRound16,
+  choiceForRound17,
+  choiceForRound18,
+  choiceForRound19,
+  choiceForRound20,
+  choiceForRound21,
+  choiceForRound22,
+  choiceForRound23,
+  choiceForRound24,
 } from "./scripts/choices.js";
 
 // Instantiate XTerm
@@ -64,7 +74,7 @@ terminal.onKey(async ({ key, domEvent: event }) => {
 
 const init = async () => {
   terminal.open(document.getElementById("terminal"));
-  // await boot();
+  await boot();
   await promptUser("Welcome to \x1B[1;32mThe Matrix\x1B[0m");
   await wait(2000);
   terminal.focus();
@@ -129,6 +139,42 @@ export const evaluateInput = async (input) => {
         break;
       case 14:
         await choiceForRound14(input);
+        break;
+      case 15:
+        await choiceForRound15(input);
+        break;
+      case 16:
+        await choiceForRound16(input);
+        break;
+      case 17:
+        await choiceForRound17(input);
+        break;
+      case 18:
+        await choiceForRound18(input);
+        break;
+      case 19:
+        await choiceForRound19(input);
+        break;
+      case 20:
+        await choiceForRound20(input);
+        break;
+      case 21:
+        await choiceForRound21(input);
+        break;
+      case 22:
+        await choiceForRound22(input);
+        break;
+      case 23:
+        await choiceForRound23(input);
+        break;
+      case 24:
+      case 23:
+        await choiceForRound24(input);
+        break;
+      case 25:
+        write("Thank you for playing.");
+        write("You've reached the end.");
+        write("To play again, please restart the page.");
         break;
       default:
         write("There's been a glitch in The Matrix.\r\n");
