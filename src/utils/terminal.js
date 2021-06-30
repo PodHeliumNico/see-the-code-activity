@@ -4,6 +4,10 @@ import { newline, buffering, input, evaluateInput } from "./index.js";
 // Handle state change for username
 let inZion;
 
+export const toggleInZion = () => {
+  inZion = !inZion;
+};
+
 export async function getTerminal() {
   const { Terminal } = await import("xterm");
 

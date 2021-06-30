@@ -1,4 +1,4 @@
-import { morpheus, wait, promptUser, setPrompt, getTerminal, inZion } from "./utils/index.js";
+import { morpheus, wait, promptUser, setPrompt, getTerminal, toggleInZion } from "./utils/index.js";
 import { boot } from "./scripts/index.js";
 import "./styles/style.css";
 import "./styles/xterm.css";
@@ -21,7 +21,7 @@ const init = async () => {
   await promptUser("Welcome to \x1B[1;32mThe Matrix\x1B[0m");
   await wait(2000);
   terminal.focus();
-  inZion = true;
+  toggleInZion();
   setPrompt(-1);
   await morpheus();
   await promptUser("Welcome... to the real world.");
