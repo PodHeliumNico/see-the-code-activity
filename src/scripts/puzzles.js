@@ -1,5 +1,3 @@
-let codeblock = document.querySelector("#code");
-
 export const puzzles = [
   [
     `// TOP SECRET`,
@@ -92,6 +90,7 @@ export const puzzles = [
 ];
 
 export const renderPuzzle = (num) => {
+  let codeblock = document.querySelector("#code");
   codeblock.innerHTML = "";
   for (let i = 0; i < puzzles[num].length; i++) {
     let line = document.createElement("tr");

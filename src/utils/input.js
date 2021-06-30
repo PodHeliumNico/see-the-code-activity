@@ -129,7 +129,7 @@ export const nextPrompt = () => {
 };
 
 export const setPrompt = (val) => {
-  promptNum += val;
+  promptNum = val;
 };
 
 export { promptNum };

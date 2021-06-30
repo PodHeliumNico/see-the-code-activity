@@ -260,7 +260,7 @@ export const tutorialRound25 = async () => {
   await morpheus();
   await promptUser("Because that curly brace is there, Smith will keep looking for Zion, even if he finds it.");
   await neo();
-  await promptUser("But because if if-statement is outside of the loop, he'll never be able to destroyZion.");
+  await promptUser("But because the if-statement is outside of the loop, he'll never be able to destroyZion.");
   await morpheus();
   await promptUser("I don't know how we can ever thank you enough.");
   await neo();
