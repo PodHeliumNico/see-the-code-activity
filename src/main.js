@@ -1,4 +1,4 @@
-import { morpheus, wait, promptUser, setPrompt, getTerminal } from "./utils/index.js";
+import { morpheus, wait, promptUser, setPrompt, getTerminal, inZion } from "./utils/index.js";
 import { boot } from "./scripts/index.js";
 import "./styles/style.css";
 import "./styles/xterm.css";
