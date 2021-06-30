@@ -1,5 +1,4 @@
-import { terminal, inZion } from "../main.js";
-import { newline, awaitInput, user, setBuffering, write } from "./helpers.js";
+import { newline, awaitInput, user, setBuffering, write, inZion } from "./index.js";
 
 // Helper function to simulate typewriter-style user prompts
 let interval;

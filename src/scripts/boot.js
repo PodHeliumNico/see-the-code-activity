@@ -1,6 +1,5 @@
+import { wait, write, promptUser } from "../utils/index.js";
 import { terminal } from "../main.js";
-import { wait, write } from "../utils/helpers.js";
-import { promptUser } from "../utils/prompts.js";
 
 export const boot = async () => {
   write("\x1B[3;32mguest@terminal42~$\x1B[0m ");

@@ -1,5 +1,4 @@
-import { morpheus, neo, wait } from "../utils/helpers.js";
-import { promptUser } from "../utils/prompts.js";
+import { morpheus, neo, wait, promptUser } from "../utils/index.js";
 import { renderPuzzle } from "./puzzles.js";
 
 export const tutorialRound1 = async () => {

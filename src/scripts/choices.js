@@ -1,6 +1,4 @@
-import { morpheus, neo, write } from "../utils/helpers.js";
-import { promptUser } from "../utils/prompts.js";
-import { promptNum, nextPrompt, terminal } from "../main.js";
+import { morpheus, neo, write, promptUser, nextPrompt } from "../utils/index.js";
 import {
   welcomeUser,
   goodbye,
@@ -10,6 +8,9 @@ import {
   tutorialRound4,
   tutorialRound5,
   tutorialRound6,
+  tutorialRound7,
+  tutorialRound8,
+  tutorialRound9,
   tutorialRound10,
   tutorialRound11,
   tutorialRound12,
@@ -25,11 +26,8 @@ import {
   tutorialRound22,
   tutorialRound23,
   tutorialRound24,
-  tutorialRound7,
-  tutorialRound8,
-  tutorialRound9,
+  tutorialRound25,
 } from "./index.js";
-import { tutorialRound25 } from "./tutorial.js";
 
 export const choiceForInit = async (input) => {
   return await new Promise(async (resolve) => {

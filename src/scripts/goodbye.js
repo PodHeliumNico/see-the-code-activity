@@ -1,5 +1,4 @@
-import { promptUser } from "../utils/prompts.js";
-import { redirect } from "../utils/helpers.js";
+import { promptUser, redirect } from "../utils/index.js";
 
 export const goodbye = async () => {
   await promptUser("Most unfortunate.");
