@@ -71,6 +71,7 @@ export const puzzles = [
     `&emsp;  while(humanSurvivors.length > 0) {`,
     `&emsp;&emsp; humanSurvivors.pop()`,
     `&emsp; }`,
+    `&emsp; return true`,
     `}`,
     ``,
     `function controlHumans() {`,
