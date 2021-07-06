@@ -274,7 +274,7 @@ export const choiceForRound16 = async (input) => {
 
 export const choiceForRound17 = async (input) => {
   return await new Promise(async (resolve) => {
-    if (input === "17") {
+    if (input === "18") {
       await tutorialRound18();
       nextPrompt();
     } else {
@@ -287,7 +287,7 @@ export const choiceForRound17 = async (input) => {
 
 export const choiceForRound18 = async (input) => {
   return await new Promise(async (resolve) => {
-    if (input === "29") {
+    if (input === "30") {
       await tutorialRound19();
       nextPrompt();
     } else {
@@ -313,7 +313,7 @@ export const choiceForRound19 = async (input) => {
 
 export const choiceForRound20 = async (input) => {
   return await new Promise(async (resolve) => {
-    if (input === "19") {
+    if (input === "20") {
       await tutorialRound21();
       nextPrompt();
     } else {
@@ -352,7 +352,7 @@ export const choiceForRound22 = async (input) => {
 
 export const choiceForRound23 = async (input) => {
   return await new Promise(async (resolve) => {
-    if (input === "19") {
+    if (input === "20") {
       await tutorialRound24();
       nextPrompt();
     } else {
@@ -365,7 +365,7 @@ export const choiceForRound23 = async (input) => {
 
 export const choiceForRound24 = async (input) => {
   return await new Promise(async (resolve) => {
-    if (input === "20") {
+    if (input === "21") {
       await tutorialRound25();
       nextPrompt();
     } else {
