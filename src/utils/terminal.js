@@ -1,55 +1,57 @@
-import { newline, buffering, input, evaluateInput } from "./index.js";
-// let { Terminal } = await import(/* webpackPreload: true */ "xterm");
+import { newline, buffering, input, handleInput } from "./index.js";
 
 // Handle state change for username
 let inZion;
 
+/** Toggle inZion state change to control username display in terminal before and after mounting zion.exe */
 export const toggleInZion = () => {
-  inZion = !inZion;
+    inZion = !inZion;
 };
 
+/** Returns a new Terminal instance */
 export async function getTerminal() {
-  const { Terminal } = await import("xterm");
+    const { Terminal } = await import("xterm");
 
-  // Instantiate XTerm
-  const terminal = new Terminal({
-    cursorBlink: true,
-    fontFamily: "Fira Code, courier-new, courier, monospace",
-    theme: { foreground: "green" },
-    cols: 81,
-  });
+    // Instantiate XTerm
+    const terminal = new Terminal({
+        cursorBlink: true,
+        fontFamily: "Fira Code, courier-new, courier, monospace",
+        theme: { foreground: "green" },
+        cols: 81,
+    });
 
-  // Handle user input
-  let currentLine = "";
-  // Guard against deleting CLI prompt
-  let col = 0;
+    let currentLine = "";
+    let col = 0;
 
-  terminal.onKey(async ({ key, domEvent: event }) => {
-    if (!buffering) {
-      if (event.code === "Backspace") {
-        if (col > 0) {
-          input("\b \b");
-          col--;
-          currentLine = currentLine.slice(0, -1);
-          return;
+    // Create event listner to handle user input
+    terminal.onKey(async ({ key, domEvent: event }) => {
+        // Prevent user input during animation
+        if (!buffering) {
+            // Guard against deleting CLI prompt
+            if (event.code === "Backspace") {
+                if (col > 0) {
+                    input("\b \b");
+                    col--;
+                    currentLine = currentLine.slice(0, -1);
+                    return;
+                }
+            } else if (event.code === "Enter") {
+                newline();
+                col = 0;
+                if (currentLine || currentLine === "") {
+                    await handleInput(currentLine.trim());
+                    currentLine = "";
+                }
+                return;
+            } else {
+                currentLine += key.toLowerCase();
+                input(key);
+                col++;
+            }
         }
-      } else if (event.code === "Enter") {
-        newline();
-        col = 0;
-        if (currentLine) {
-          await evaluateInput(currentLine.trim());
-          currentLine = "";
-        }
-        return;
-      } else {
-        currentLine += key.toLowerCase();
-        input(key);
-        col++;
-      }
-    }
-  });
+    });
 
-  return terminal;
+    return terminal;
 }
 
 export { inZion };

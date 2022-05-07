@@ -1,36 +1,44 @@
 import { terminal } from "../main.js";
+import { promptUser } from "../utils/index.js";
 
 let buffering = true;
+
+/** Sets the state that represents terminal animation in progress */
 export const setBuffering = (bool) => {
     buffering = bool;
 };
 
+/** Writes an animated message to the terimal's STDOUT */
 export const write = (message) => {
-    buffering = true;
+    setBuffering(true);
     terminal.write(message);
 };
 
+/** Writes a user's input to the terminal's STDIN */
 export const input = (message) => {
     terminal.write(message);
 };
 
-// Helper functions to insert newlines
+/** Inserts newlines in terminal animations */
 export const newline = () => {
-    buffering = true;
+    setBuffering(true);
     terminal.write("\r\n");
 };
 
+/** Display the user's pre-zion username */
 export const awaitInput = () => {
     terminal.write("\r\n\x1B[3;36mnewuser@terminal42~$\x1B[0m ");
-    buffering = false;
+    setBuffering(false);
 };
 
+/** Redirects users to Kenzie Academy Homepage */
 export const redirect = () => {
     window.location = "https://kenzie.academy";
 };
 
+/** Display Morpheus's username in animations */
 export const morpheus = async () => {
-    buffering = true;
+    setBuffering(true);
     return await new Promise(async (resolve) => {
         terminal.write("\x1B[3;35mmorpheus@zion~$\x1B[0m ");
         await wait(TIME.MED);
@@ -38,8 +46,9 @@ export const morpheus = async () => {
     });
 };
 
+/** Display Neo's username in animations */
 export const neo = async () => {
-    buffering = true;
+    setBuffering(true);
     return await new Promise(async (resolve) => {
         terminal.write("\x1B[3;37mneo@zion~$\x1B[0m ");
         await wait(TIME.MED);
@@ -47,14 +56,16 @@ export const neo = async () => {
     });
 };
 
+/** Display the user's username, end animation, and await user input */
 export const user = () => {
     terminal.write("\r\n\x1B[3;36mnewuser@zion~$\x1B[0m ");
     terminal.focus();
-    buffering = false;
+    setBuffering(false);
 };
 
+/** Delays animation by an amount of time in ms */
 export const wait = async (ms) => {
-    buffering = true;
+    setBuffering(true);
     return await new Promise(async (resolve) => setTimeout(resolve, ms));
 };
 
@@ -65,4 +76,10 @@ export const TIME = {
     MED: 500,
     SHORT: 250,
     MIN: 125,
+};
+
+export const goodbye = async () => {
+    await promptUser("Most unfortunate.");
+    await promptUser("Goodbye.");
+    redirect();
 };

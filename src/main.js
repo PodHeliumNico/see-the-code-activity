@@ -1,17 +1,12 @@
-import {
-    morpheus,
-    wait,
-    promptUser,
-    setPrompt,
-    getTerminal,
-    toggleInZion,
-    TIME,
-} from "./utils/index.js";
+import { getTerminal } from "./utils/index.js";
 import { boot } from "./scripts/index.js";
 import "./styles/style.css";
 import "./styles/xterm.css";
+import { SceneController } from "./scripts/SceneController";
+import { sceneList } from "./scripts/scenes.js";
 
 export let terminal;
+export let controller;
 
 const init = async () => {
     terminal = await getTerminal();
@@ -25,20 +20,10 @@ const init = async () => {
     document.body.append(codeElem);
 
     terminal.open(document.getElementById("terminal"));
-    await boot();
-    await promptUser("Welcome to \x1B[1;32mThe Matrix\x1B[0m");
-    await wait(TIME.LONG);
-    terminal.focus();
-    toggleInZion();
-    setPrompt(-1);
-    await morpheus();
-    await promptUser("Welcome... to the real world.");
-    wait(TIME.MED);
-    await morpheus();
-    await promptUser(
-        "Would you like to know what you're doing here? (y/n)",
-        true
-    );
+    // await boot();
+
+    controller = new SceneController(sceneList);
+    await controller.advanceScene();
 };
 
 init();

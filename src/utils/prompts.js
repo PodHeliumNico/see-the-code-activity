@@ -8,11 +8,13 @@ import {
     TIME,
 } from "./index.js";
 
-// Helper function to simulate typewriter-style user prompts
+let animationSpeed = 25;
+
 let interval;
 let char = 0;
 let isMessageOver;
 
+/** Helper function to simulate typewriter-style user prompts */
 export const animatePrompt = async (message, allowInput) => {
     if (message[char]) {
         write(message[char]);
@@ -29,8 +31,9 @@ export const animatePrompt = async (message, allowInput) => {
     char++;
 };
 
-// Display prompts to user
-// Written with async / await in order to allow animations to resolve sequentially
+/** Display prompts to user.
+ *
+ * Executes asynchronously, in order to allow animations to resolve sequentially */
 export const promptUser = async (message, allowInput) => {
     setBuffering(true);
     return await new Promise(async (resolve) => {
@@ -43,6 +46,6 @@ export const promptUser = async (message, allowInput) => {
             } else {
                 animatePrompt(message, allowInput);
             }
-        }, 50);
+        }, animationSpeed);
     });
 };
