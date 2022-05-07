@@ -12,7 +12,7 @@ export class Scene {
         answer,
         faultyInputHandler = defaultHandler,
     }) {
-        this.dialogue = (v) => dialogue(v);
+        this.dialogue = async (v) => dialogue(v);
         this.question = question;
         this.answer = answer;
         this.handleIncorrectInput = async (input) => {
