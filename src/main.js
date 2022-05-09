@@ -15,12 +15,12 @@ const init = async () => {
     terminalElem.id = "terminal";
     document.body.append(terminalElem);
 
-    let codeElem = document.createElement("table");
+    let codeElem = document.createElement("div");
     codeElem.id = "code";
     document.body.append(codeElem);
 
     terminal.open(document.getElementById("terminal"));
-    // await boot();
+    await boot();
 
     controller = new SceneController(sceneList);
     await controller.advanceScene();

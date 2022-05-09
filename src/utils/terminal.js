@@ -8,6 +8,8 @@ export const toggleInZion = () => {
     inZion = !inZion;
 };
 
+export const COL_SIZE = 81;
+
 /** Returns a new Terminal instance */
 export async function getTerminal() {
     const { Terminal } = await import("xterm");
@@ -17,7 +19,7 @@ export async function getTerminal() {
         cursorBlink: true,
         fontFamily: "Fira Code, courier-new, courier, monospace",
         theme: { foreground: "green" },
-        cols: 81,
+        cols: COL_SIZE,
     });
 
     let currentLine = "";
@@ -43,6 +45,8 @@ export async function getTerminal() {
                     currentLine = "";
                 }
                 return;
+            } else if (event.code === "Tab") {
+                terminal.blur();
             } else {
                 currentLine += key.toLowerCase();
                 input(key);

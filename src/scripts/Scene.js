@@ -1,7 +1,7 @@
 import { promptUser, write } from "../utils";
 
 const defaultHandler = async (question) => {
-    write("There's been a glitch in The Matrix.\r\n");
+    write("\r\nThere's been a glitch in The Matrix.\r\n");
     await promptUser(`\x1B[1;32m${question}\x1B[0m`, true);
 };
 
@@ -12,7 +12,10 @@ export class Scene {
         answer,
         faultyInputHandler = defaultHandler,
     }) {
-        this.dialogue = async (v) => dialogue(v);
+        this.dialogue = async (v) => {
+            write("\r\n");
+            dialogue(v);
+        };
         this.question = question;
         this.answer = answer;
         this.handleIncorrectInput = async (input) => {

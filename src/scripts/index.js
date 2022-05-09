@@ -1,4 +1,5 @@
 export * from "./boot.js";
-export * from "./goodbye.js";
+export * from "./puzzles.js";
+export * from "./Scene.js";
+export * from "./SceneController.js";
 export * from "./scenes.js";
-export * from "./welcomeUser.js";

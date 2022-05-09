@@ -1,0 +1,86 @@
+<div
+    style="
+        background: #111111;
+        overflow: auto;
+        width: auto;
+        border: solid gray;
+        border-width: 0.1em 0.1em 0.1em 0.8em;
+        padding: 0.2em 0.6em;
+    "
+>
+    <table>
+        <tr>
+            <td>
+                <pre style="margin: 0; line-height: 125%">
+    1
+    2
+    3
+    4
+    5
+    6
+    7
+    8
+    9
+   10
+   11
+   12
+   13
+   14
+   15
+   16
+   17
+   18
+   19
+   20
+   21
+   22
+   23
+   24
+   25
+   26
+   27
+   28
+   29
+   30
+   31</pre
+                >
+            </td>
+            <td>
+                <pre
+                    style="margin: 0; line-height: 125%"
+                ><span style="color: #fb660a; font-weight: bold">function</span> <span style="color: #ffffff">searchForZion()</span> <span style="color: #ffffff">{</span>
+       <span style="color: #008800; font-style: italic; background-color: #0f140f">// humanTerritories is an array of location objects,</span>
+       <span style="color: #fb660a; font-weight: bold">for</span> <span style="color: #ffffff">(</span><span style="color: #fb660a; font-weight: bold">let</span> <span style="color: #ffffff">location</span> <span style="color: #fb660a; font-weight: bold">in</span> <span style="color: #ffffff">humanTerritories)</span> <span style="color: #ffffff">{</span>
+           <span style="color: #fb660a; font-weight: bold">if</span> <span style="color: #ffffff">(location.name</span> <span style="color: #ffffff">===</span> <span style="color: #0086d2">&quot;Zion&quot;</span><span style="color: #ffffff">)</span> <span style="color: #ffffff">{</span>
+               <span style="color: #fb660a; font-weight: bold">return</span> <span style="color: #fb660a; font-weight: bold">true</span><span style="color: #ffffff">;</span>
+           <span style="color: #ffffff">}</span>
+       <span style="color: #ffffff">}</span>
+   <span style="color: #ffffff">}</span>
+   
+   <span style="color: #fb660a; font-weight: bold">function</span> <span style="color: #ffffff">destroyZion()</span> <span style="color: #ffffff">{</span>
+       <span style="color: #008800; font-style: italic; background-color: #0f140f">// humanSurvivors is an array of people living in Zion,</span>
+       <span style="color: #fb660a; font-weight: bold">while</span> <span style="color: #ffffff">(humanSurvivors.length</span> <span style="color: #ffffff">&gt;</span> <span style="color: #0086f7; font-weight: bold">0</span><span style="color: #ffffff">)</span> <span style="color: #ffffff">{</span>
+           <span style="color: #ffffff">humanSurvivors.pop();</span>
+       <span style="color: #ffffff">}</span>
+       <span style="color: #fb660a; font-weight: bold">return</span> <span style="color: #fb660a; font-weight: bold">true</span><span style="color: #ffffff">;</span>
+   <span style="color: #ffffff">}</span>
+   
+   <span style="color: #fb660a; font-weight: bold">function</span> <span style="color: #ffffff">controlHumans()</span> <span style="color: #ffffff">{</span>
+       <span style="color: #fb660a; font-weight: bold">while</span> <span style="color: #ffffff">(!zionDefeated)</span> <span style="color: #ffffff">{</span>
+           <span style="color: #fb660a; font-weight: bold">let</span> <span style="color: #ffffff">isZionFound</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">searchForZion();</span>
+       <span style="color: #ffffff">}</span>
+       <span style="color: #fb660a; font-weight: bold">if</span> <span style="color: #ffffff">(isZionFound)</span> <span style="color: #ffffff">{</span>
+           <span style="color: #ffffff">zionDefeated</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">destroyZion();</span>
+       <span style="color: #ffffff">}</span>
+   <span style="color: #ffffff">}</span>
+   
+   <span style="color: #fb660a; font-weight: bold">let</span> <span style="color: #ffffff">zionDefeated</span> <span style="color: #ffffff">=</span> <span style="color: #fb660a; font-weight: bold">false</span><span style="color: #ffffff">;</span>
+   
+   <span style="color: #008800; font-style: italic; background-color: #0f140f">// PROGRAM IS THE CODE NAME FOR AGENT SMITH (FROM THE PREVIOUS DOCUMENT),</span>
+   <span style="color: #ffffff">program.directive</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">controlHumans;</span>
+   <span style="color: #ffffff">program.directive();</span>
+   </pre>
+            </td>
+        </tr>
+    </table>
+</div>

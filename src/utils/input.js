@@ -6,7 +6,7 @@ export const handleInput = async (input) => {
     return await new Promise(async (resolve) => {
         switch (true) {
             case controller.sceneNumber >= 0 &&
-                controller.sceneNumber + 2 < controller.scenes.length:
+                controller.sceneNumber + 1 < controller.scenes.length:
                 controller.evaluateInput(input);
                 break;
             case controller.sceneNumber == controller.scenes.length - 1:

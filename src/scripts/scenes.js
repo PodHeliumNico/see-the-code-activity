@@ -6,8 +6,9 @@ import {
     promptUser,
     goodbye,
     TIME,
+    newline,
 } from "../utils/index.js";
-import { renderPuzzle } from "./puzzles.js";
+import { loadPuzzles, renderPuzzle } from "./puzzles.js";
 import { Scene } from "./Scene.js";
 
 const QUESTIONS = {
@@ -18,7 +19,7 @@ const QUESTIONS = {
     trainFunctionLineNumber: "What line executes the train function?",
     isSkillAdded:
         "If a skill is added to the agent.skills array, enter its name without quotes." +
-        "\n" +
+        "\r\n" +
         'If no skill is added, enter "nothing" without quotes.',
     maxLoops: "What is the maximum number of times that this loop could run?",
     skillArrayLength:
@@ -44,6 +45,7 @@ export const sceneList = [
                 await morpheus();
                 await promptUser("Welcome... to the real world.");
                 wait(TIME.MED);
+                newline();
                 await morpheus();
                 await promptUser(
                     "Would you like to know what you're doing here? (y/n)",
@@ -72,6 +74,7 @@ export const sceneList = [
     new Scene({
         dialogue: async () => {
             return await new Promise(async (resolve) => {
+                loadPuzzles();
                 await morpheus();
                 await promptUser("Excellent...");
                 await morpheus();
@@ -159,6 +162,7 @@ export const sceneList = [
     new Scene({
         dialogue: async (question) => {
             return await new Promise(async (resolve) => {
+                await loadPuzzles();
                 await neo();
                 await promptUser("I knew it!");
                 await morpheus();
@@ -176,7 +180,7 @@ export const sceneList = [
             });
         },
         question: QUESTIONS.whichLineFirst,
-        answer: "3",
+        answer: "4",
     }),
     new Scene({
         dialogue: async (question) => {
@@ -190,7 +194,7 @@ export const sceneList = [
             });
         },
         question: QUESTIONS.whichLineNext,
-        answer: "4",
+        answer: "5",
     }),
     new Scene({
         dialogue: async (question) => {
@@ -263,7 +267,7 @@ export const sceneList = [
             });
         },
         question: QUESTIONS.trainFunctionLineNumber,
-        answer: "42",
+        answer: "47",
     }),
     new Scene({
         dialogue: async (question) => {
@@ -283,7 +287,7 @@ export const sceneList = [
             });
         },
         question: QUESTIONS.whichLineNext,
-        answer: "31",
+        answer: "32",
     }),
     new Scene({
         dialogue: async (question) => {
@@ -297,7 +301,7 @@ export const sceneList = [
             });
         },
         question: QUESTIONS.whichLineNext,
-        answer: "32",
+        answer: "33",
     }),
     new Scene({
         dialogue: async (question) => {
@@ -311,7 +315,7 @@ export const sceneList = [
             });
         },
         question: QUESTIONS.whichLineNext,
-        answer: "33",
+        answer: "34",
     }),
     new Scene({
         dialogue: async (question) => {
@@ -470,7 +474,7 @@ export const sceneList = [
             });
         },
         question: QUESTIONS.controlHumansLineNumber,
-        answer: "30",
+        answer: "31",
     }),
     new Scene({
         dialogue: async (question) => {
@@ -637,6 +641,7 @@ export const sceneList = [
                 await promptUser("And now...");
                 await neo();
                 await promptUser("I know JavaScript.");
+                newline();
                 await promptUser("\x1B[1;32mCongratulations.\x1B[0m");
                 await promptUser(
                     "\x1B[1;32mThanks to you, Zion is safe.\x1B[0m"
