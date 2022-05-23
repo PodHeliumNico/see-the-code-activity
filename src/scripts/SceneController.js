@@ -13,10 +13,6 @@ export class SceneController {
     }
 
     async advanceScene() {
-        console.log({
-            sceneNumber: this.sceneNumber,
-            sceneLenght: this.scenes.length,
-        });
         if (this.sceneNumber + 1 < this.scenes.length) {
             this.sceneNumber++;
             return await this.scenes[this.sceneNumber].play();

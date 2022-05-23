@@ -12,7 +12,6 @@ export const loadPuzzles = async () => {
     const puzzle3 = await getFileText("/puzzles/p03.html", "p03.js");
 
     puzzles.push(puzzle1, puzzle2, puzzle3);
-    console.log(puzzles);
 };
 
 export const renderPuzzle = (num) => {

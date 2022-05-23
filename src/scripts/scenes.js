@@ -42,10 +42,10 @@ export const sceneList = [
     new Scene({
         dialogue: async () => {
             return await new Promise(async (resolve) => {
+                newline();
                 await morpheus();
                 await promptUser("Welcome... to the real world.");
                 wait(TIME.MED);
-                newline();
                 await morpheus();
                 await promptUser(
                     "Would you like to know what you're doing here? (y/n)",

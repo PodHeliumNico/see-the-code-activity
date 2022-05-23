@@ -13,7 +13,6 @@ export class Scene {
         faultyInputHandler = defaultHandler,
     }) {
         this.dialogue = async (v) => {
-            write("\r\n");
             dialogue(v);
         };
         this.question = question;
